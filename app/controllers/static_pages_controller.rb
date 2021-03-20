@@ -10,6 +10,7 @@ class StaticPagesController < ApplicationController
 
   def disconnect
     reset_session
+    flash[:alert] = 'Vous avez été déconnecté'
     redirect_to root_path
   end
 
