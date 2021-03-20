@@ -34,6 +34,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'better_errors', '~> 2.9', '>= 2.9.1'
+  gem 'binding_of_caller', '~> 1.0'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
