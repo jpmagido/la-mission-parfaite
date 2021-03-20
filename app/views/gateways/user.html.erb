@@ -1,0 +1,7 @@
+<h1>Bienvenue Visiteur</h1>
+<h3>Veuillez renseigner le Mot de Passe pour accéder au site </h3>
+
+<%= render partial: 'gateways/form', locals: {is_admin: false} %>
+
+<br><br>
+<%= link_to 'ADMIN', gateways_admin_path %>

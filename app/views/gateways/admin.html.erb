@@ -1,0 +1,7 @@
+<h1>ADMIN</h1>
+<h3>Bonjour merci de renseigner le password pour accéder à la partie Admin</h3>
+
+<%= render partial: 'gateways/form', locals: {is_admin: true} %>
+
+<br><br>
+<%= link_to 'USER', gateways_user_path %>

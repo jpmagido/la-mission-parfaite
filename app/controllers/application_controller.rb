@@ -1,8 +1,10 @@
 class ApplicationController < ActionController::Base
 
-  private
-
   def session_password_match?
-    ::AuthenticatorService.new(session[:password]).correct_password?
+    ::AuthenticatorService.new(session[:user_password]).correct_password?
+  end
+
+  def session_admin_password_match?
+    ::AuthenticatorService.new(session[:admin_password]).correct_admin_password?
   end
 end
