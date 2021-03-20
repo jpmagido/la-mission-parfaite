@@ -19,7 +19,7 @@ class StaticPagesController < ApplicationController
       flash[:success] = 'Bienvenue sur le site des CDD :)'
       redirect_to static_pages_home_path
     else
-      flash[:error] = 'erreur de mot de passe'
+      flash[:error] = 'Mot de passe incorrect'
       redirect_to root_path
     end
   end
