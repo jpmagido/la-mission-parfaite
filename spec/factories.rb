@@ -1,11 +1,11 @@
 FactoryBot.define do
   factory :admin do
     email { FFaker::Internet.email}
-    password { SecureRandom.hex }
+    password { 'blablabla' }
   end
 
   factory :password do
-    content { SecureRandom.hex }
+    content { 'blobloblo' }
     auth_level { Password.auth_level.values.sample}
   end
 end

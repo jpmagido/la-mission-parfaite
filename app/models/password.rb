@@ -11,9 +11,7 @@ class Password < ApplicationRecord
   private
 
   def unique?
-    if decrypted_passwords.include?(content)
-      errors.add(:content, 'Ce password est déjà utilisé')
-    end
+    raise ActiveRecord::RecordNotUnique if decrypted_passwords.include?(content)
   end
 
   def encrypt!
@@ -21,6 +19,10 @@ class Password < ApplicationRecord
   end
 
   protected
+
+  def decrypt!
+    BCrypt::Password.new(content)
+  end
 
   def decrypted_passwords
     passwords = Password.all.pluck(:content)
