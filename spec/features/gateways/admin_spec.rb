@@ -9,7 +9,7 @@ RSpec.describe "/gateways/admin.html.erb", type: :feature do
     expect(page).to have_content 'Mot de Passe Administrateur'
   end
 
-  context 'visitor password in gateways/admin' do
+  context 'user password in gateways/admin' do
     let(:correct_user_password) { ENV['GLOBAL_PASSWORD'] }
 
     it 'should redirect to gateways/user' do

@@ -2,16 +2,31 @@ require 'bcrypt'
 
 class Password < ApplicationRecord
   extend Enumerize
-  enumerize :auth_level, in: [:visitor, :admin]
-
-  validate :unique?
+  enumerize :auth_level, in: [:user, :admin]
+  validates :auth_level, presence: true
+  validate :force_uniqueness, :one_only_user_password, :only_one_admin_password
 
   before_save :encrypt!
 
+  scope :user_password, -> { where(auth_level: :user) }
+  scope :admin_password, -> { where(auth_level: :admin) }
+
   private
 
-  def unique?
-    raise ActiveRecord::RecordNotUnique if decrypted_passwords.include?(content)
+  def one_only_user_password
+    if Password.user_password.count > 0 && auth_level == :user
+      raise ActiveRecord::RecordInvalid
+    end
+  end
+
+  def only_one_admin_password
+    if Password.admin_password.count > 0 && auth_level == :admin
+      raise ActiveRecord::RecordInvalid
+    end
+  end
+
+  def force_uniqueness
+    raise ActiveRecord::RecordNotUnique if duplicated?
   end
 
   def encrypt!
@@ -24,10 +39,10 @@ class Password < ApplicationRecord
     BCrypt::Password.new(content)
   end
 
-  def decrypted_passwords
-    passwords = Password.all.pluck(:content)
-    passwords.map do |encrypted_pwd|
+  def duplicated?
+    encrypted_pwds = Password.all.pluck(:content)
+    encrypted_pwds.map do |encrypted_pwd|
       BCrypt::Password.new(encrypted_pwd)
-    end
+    end.include?(content)
   end
 end

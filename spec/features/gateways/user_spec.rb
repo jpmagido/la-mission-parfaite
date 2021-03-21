@@ -6,7 +6,7 @@ RSpec.describe "/gateways/user.html.erb", type: :feature do
     expect(page).to have_content 'Bienvenue Visiteur'
   end
 
-  context 'visitor_password' do
+  context 'user_password' do
     let(:correct_user_password) { ENV['GLOBAL_PASSWORD'] }
     let(:incorrect_user_password) { SecureRandom.hex }
 
