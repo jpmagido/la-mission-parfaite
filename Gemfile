@@ -13,9 +13,11 @@ gem 'devise', '~> 4.7', '>= 4.7.3'
 #SUPPORT
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
+gem 'enumerize', '~> 2.4'
 gem 'jbuilder', '~> 2.7'
 gem 'rexml', '~> 3.2', '>= 3.2.4'
 gem 'turbolinks', '~> 5'
+gem 'bcrypt', '~> 3.1', '>= 3.1.16'
 
 # Style
 gem 'sass-rails', '>= 6'
@@ -24,6 +26,8 @@ gem 'webpacker', '~> 5.0'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
+  gem 'factory_bot_rails', '~> 6.1'
+  gem 'ffaker', '~> 2.18'
 end
 
 group :development do

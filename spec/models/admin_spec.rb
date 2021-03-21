@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Admin, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:admin) { build_stubbed(:admin)}
+  it 'should create a valid admin' do
+    expect(admin).to be_valid
+  end
 end
