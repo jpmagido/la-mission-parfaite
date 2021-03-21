@@ -8,11 +8,10 @@ class AuthenticatorService
   end
 
   def correct_password?
-    Password.user_password.send('decrypt!') == password_to_verify
+    Password.user_password.is_equal_to?(password_to_verify)
   end
 
   def correct_admin_password?
-    Password.admin_password.send('decrypt!') == password_to_verify
+    Password.admin_password.is_equal_to?(password_to_verify)
   end
 end
-

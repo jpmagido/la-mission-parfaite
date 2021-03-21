@@ -1,9 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe AuthenticatorService do
-  let!(:user_password) { create(:password, auth_level: :user, content: 'password-user') }
+  before do
+    @user_password = 'user_password'
+    create(:password, auth_level: :user, content: @user_password)
+  end
 
-  let(:correct_auth) { AuthenticatorService.new('password-user') }
+  #let!(:user_password) { create(:password, auth_level: :user, content: 'password-user') }
+
+  let(:correct_auth) { AuthenticatorService.new(@user_password) }
   let(:wrong_auth) { AuthenticatorService.new(SecureRandom.hex) }
 
   it 'should return false' do
