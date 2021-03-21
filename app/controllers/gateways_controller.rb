@@ -9,23 +9,19 @@ class GatewaysController < ApplicationController
 
   def disconnect
     reset_session
-    flash[:alert] = 'Vous avez été déconnecté'
-    redirect_to root_path
+    redirect_to root_path, notice: 'Vous avez été déconnecté'
   end
 
   def check_password
     auth = ::AuthenticatorService.new(params[:password])
     if params[:admin] == 'true' && auth.correct_admin_password?
       session[:admin_password] = params[:password]
-      flash[:success] = 'Bienvenue sur la partie Admin'
-      redirect_to new_admin_registration_path
+      redirect_to new_admin_registration_path, success: 'Bienvenue sur la partie Admin'
     elsif auth.correct_password?
       session[:user_password] = params[:password]
-      flash[:success] = 'Bienvenue sur le site des CDD'
-      redirect_to static_pages_home_path
+      redirect_to static_pages_home_path, success: 'Bienvenue sur le site des CDD'
     else
-      flash[:error] = 'Une erreur est survenue :/'
-      redirect_to root_path
+      redirect_to root_path, alert: 'Mauvais Mot de Passe :/'
     end
   end
 end
