@@ -4,28 +4,32 @@ class Password < ApplicationRecord
   extend Enumerize
   enumerize :auth_level, in: [:user, :admin]
   validates :auth_level, presence: true
-  validate :force_uniqueness, :one_only_user_password, :only_one_admin_password
+  validate :force_uniqueness!, :one_only_user_password, :only_one_admin_password
 
   before_save :encrypt!
 
-  scope :user_password, -> { where(auth_level: :user) }
-  scope :admin_password, -> { where(auth_level: :admin) }
+  scope :user_password, -> { find_by(auth_level: :user) }
+  scope :admin_password, -> { find_by(auth_level: :admin) }
 
   private
 
   def one_only_user_password
-    if Password.user_password.count > 0 && auth_level == :user
-      raise ActiveRecord::RecordInvalid
+    if Rails.env == 'production'
+      if Password.user_password.count >= 1 && auth_level == :user
+        raise ActiveRecord::RecordInvalid
+      end
     end
   end
 
   def only_one_admin_password
-    if Password.admin_password.count > 0 && auth_level == :admin
-      raise ActiveRecord::RecordInvalid
+    if Rails.env == 'production'
+      if Password.admin_password.count >= 1 && auth_level == :admin
+        raise ActiveRecord::RecordInvalid
+      end
     end
   end
 
-  def force_uniqueness
+  def force_uniqueness!
     raise ActiveRecord::RecordNotUnique if duplicated?
   end
 
@@ -36,7 +40,7 @@ class Password < ApplicationRecord
   protected
 
   def decrypt!
-    BCrypt::Password.new(content)
+    BCrypt::Password.new(self.content)
   end
 
   def duplicated?

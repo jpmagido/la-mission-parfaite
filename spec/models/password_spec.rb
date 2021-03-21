@@ -8,8 +8,9 @@ RSpec.describe Password, type: :model do
   end
 
   context 'second same password is created' do
-    let!(:original_password) { create(:password) }
-    let(:twin_password) { create(:password) }
+    let(:password) { 'blablabla'}
+    let!(:original_password) { create(:password, content: password) }
+    let(:twin_password) { create(:password, content: password) }
 
     it 'should raise error' do
       expect { twin_password }.to raise_error ActiveRecord::RecordNotUnique
