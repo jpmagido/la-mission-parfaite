@@ -2,10 +2,10 @@ class ApplicationController < ActionController::Base
   add_flash_types :success, :error
 
   def session_password_match?
-    ::AuthenticatorService.new(session[:user_password]).correct_password?
+    Password.user_password.is_equal_to?(session[:user_password])
   end
 
   def session_admin_password_match?
-    ::AuthenticatorService.new(session[:admin_password]).correct_admin_password?
+    Password.admin_password.is_equal_to?(session[:admin_password])
   end
 end
