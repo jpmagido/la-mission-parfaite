@@ -6,23 +6,21 @@
 - Les Lieux de couchage
 - Autres Infos diverses
 
-> L'idée est que chaque invité puisse y publier librement ses bons plans 
+> L'idée est que chaque invité puisse y publier librement ses bons plans
 
 
 Partie USER
 
-Connexion via une page pour avoir accès au site
-Consultation des Restaurants par Région
-Consultation des lieux de couchage par Région
+- Connexion via une page pour avoir accès au site
+- Consultation & ajout des Restaurants par Région
+- Consultation & ajout des lieux de couchage par Région
 
 Partie ADMIN
 
-Gestion des Utilisateurs, des Mots de Passe et autres réjouissance
+- Gestion des Utilisateurs, des Mots de Passe et autres réjouissance
 
 _____________
 _____________
-
-
 
 * Architecture Monolithe Rails avec Front intégré en ERB
 
@@ -38,21 +36,20 @@ _____________
   > des seeds sont présentes dans les migrations pour setup les mots de passes globaux
 
 * TESTS : `rspec`
-  * Dependencies:
-    - Capybara
-    - FactoryBot
-    - FFaker
-    - Database Cleaner
-  
+    * Dependencies:
+        - Capybara
+        - FactoryBot
+        - FFaker
+        - Database Cleaner
 
 
-* CODE: 
+* CODE:
   [GITHUB](https://github.com/jpmagido/la-mission-parfaite)
     - MASTER BRANCH
     - DELIVERY BRANCH
-  
-  
-* PROJET: 
+
+
+* PROJET:
   [TRELLO](https://trello.com/b/XsGM2sNn/roro-app-city-gang)
 
     - HEROKU
