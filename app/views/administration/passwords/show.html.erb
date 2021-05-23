@@ -1,0 +1,11 @@
+<h2>Admin Password SHOW</h2>
+
+<div>
+  <ul>
+    <li> Id : <%= password.id %> </li>
+    <li> Mot de Passe : <%= password.content %> </li>
+    <li> Niveau d'habilitation : <%= password.auth_level %> </li>
+    <li> Date de création : <%= password.created_at.to_date %> </li>
+    <li> Dernière modification : <%= password.updated_at.to_date %> </li>
+  </ul>
+</div>

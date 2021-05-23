@@ -4,7 +4,13 @@ Rails.application.routes.draw do
     registrations: 'admins/registrations'
   }
 
+  namespace :administration do
+    resources :passwords, only: [:edit, :update, :show]
+    get 'dashboard', to: 'administrations#dashboard'
+  end
+
   root 'gateways#user'
+
   get 'static_pages/home'
 
   get 'gateways/user'
