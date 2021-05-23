@@ -1,12 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "/gateways/user.html.erb", type: :feature do
-  before do
-    @correct_admin_password = 'correct_admin_password'
-    @correct_user_password = 'correct_user_password'
-    create(:password, content: @correct_admin_password, auth_level: :admin)
-    create(:password, content: @correct_user_password, auth_level: :user)
-  end
+  include_context 'passwords_creation'
 
   it 'should display content' do
     visit 'gateways/user'
