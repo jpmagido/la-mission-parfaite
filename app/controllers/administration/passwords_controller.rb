@@ -1,12 +1,6 @@
 module Administration
   class PasswordsController < BaseController
-    helper_method :password
-
-    def show
-    end
-
-    def edit
-    end
+    helper_method :password, :passwords
 
     def update
       password.update!(params_password)
@@ -16,7 +10,11 @@ module Administration
     private
 
     def password
-      @password ||= Password.find(params[:password_id])
+      @password ||= passwords.find(params[:id])
+    end
+
+    def passwords
+      @passwords ||= Password.all
     end
 
     def params_password

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   }
 
   namespace :administration do
-    resources :passwords, only: [:edit, :update, :show]
+    resources :passwords, only: [:edit, :update, :show, :index]
     get 'dashboard', to: 'administrations#dashboard'
   end
 

@@ -1,0 +1,9 @@
+<div>
+  <br>
+  <div> Id : <%= password.id %> </div>
+  <div> Mot de Passe : <%= password.content %> </div>
+  <div> Niveau d'habilitation : <%= password.auth_level %> </div>
+  <div> Date de création : <%= password.created_at.to_date %> </div>
+  <div> Dernière modification : <%= password.updated_at.to_date %> </div>
+  <%= link_to 'Modifier le password', edit_administration_password_path(password) %>
+</div>

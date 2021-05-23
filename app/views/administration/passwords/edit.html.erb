@@ -1,9 +1,14 @@
 <h2> ADMIN EDIT PASSWORD</h2>
 
 <div>
-  <% form_with model: [:admin, password] do |f| %>
-    <%= f.text_field :content %>
+  <%= form_with model: [:admin, password] do |f| %>
+    <%= f.label :content, 'Mot de passe' %>
+    <%= f.text_area :content %>
+    <br>
+    <%= f.label :auth_level, "Niveau d'accès" %>
     <%= f.select :auth_level, [['Admin', :admin], ['Visiteur', :user]] %>
-    <%= f.submit %>
+    <br>
+    <%= f.submit 'Valider la modification' %>
   <% end %>
+  <%= link_to 'Retour', :back %>
 </div>

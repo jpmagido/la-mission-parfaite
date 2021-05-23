@@ -16,7 +16,7 @@ class GatewaysController < ApplicationController
     case
     when params[:admin] == 'true' && admin_password.is_equal_to?(input_password)
       session[:admin_password] = input_password
-      redirect_to new_admin_registration_path, success: 'Bienvenue sur la partie Admin'
+      redirect_to new_admin_session_path, success: 'Bienvenue sur la partie Admin'
 
     when user_password.is_equal_to?(input_password)
       session[:user_password] = input_password
