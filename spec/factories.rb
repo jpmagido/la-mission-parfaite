@@ -1,4 +1,8 @@
 FactoryBot.define do
+  factory :city do
+    name { 'Amiens' }
+  end
+
   factory :admin do
     email { FFaker::Internet.email }
     password { SecureRandom.hex }
