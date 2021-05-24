@@ -19,6 +19,9 @@ gem 'rexml', '~> 3.2', '>= 3.2.4'
 gem 'turbolinks', '~> 5'
 gem 'bcrypt', '~> 3.1', '>= 3.1.16'
 
+# Auth
+gem 'pundit', '~> 2.1'
+
 # Style
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'

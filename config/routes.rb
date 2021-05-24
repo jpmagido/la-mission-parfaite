@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     get 'dashboard', to: 'administrations#dashboard'
   end
 
+  resources :cities, only: [:show, :index, :edit, :update]
+
   root 'gateways#user'
 
   get 'static_pages/home'
@@ -17,4 +19,6 @@ Rails.application.routes.draw do
   get 'gateways/admin'
   post 'gateways/check_password'
   post 'gateways/disconnect'
+
+  get 'unauthorized', to: 'errors#unauthorized_401'
 end

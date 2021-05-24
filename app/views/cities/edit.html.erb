@@ -1,0 +1,7 @@
+<%= form_with model: city do |f| %>
+  <%= f.label :name, 'Nom de la ville' %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.submit 'Valider la modification' %>
+<% end %>
+<%= link_to 'Retour', :back %>
