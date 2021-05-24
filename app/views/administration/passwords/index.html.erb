@@ -1,0 +1,9 @@
+<div>
+<% passwords.each do |password| %>
+    <%= render partial: 'administration/passwords/list', locals: { password: password } %>
+    <%= link_to 'password page', administration_password_path(password) %>
+  <% end %>
+</div>
+
+<br>
+<%= link_to 'Retour', :back %>

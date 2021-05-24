@@ -13,15 +13,31 @@ class GatewaysController < ApplicationController
   end
 
   def check_password
-    auth = ::AuthenticatorService.new(params[:password])
-    if params[:admin] == 'true' && auth.correct_admin_password?
-      session[:admin_password] = params[:password]
-      redirect_to new_admin_registration_path, success: 'Bienvenue sur la partie Admin'
-    elsif auth.correct_password?
-      session[:user_password] = params[:password]
+    case
+    when params[:admin] == 'true' && admin_password.is_equal_to?(input_password)
+      session[:admin_password] = input_password
+      redirect_to new_admin_session_path, success: 'Bienvenue sur la partie Admin'
+
+    when user_password.is_equal_to?(input_password)
+      session[:user_password] = input_password
       redirect_to static_pages_home_path, success: 'Bienvenue sur le site des CDD'
+
     else
       redirect_to root_path, alert: 'Mauvais Mot de Passe :/'
     end
+  end
+
+  private
+
+  def admin_password
+    Password.admin_password
+  end
+
+  def user_password
+    Password.user_password
+  end
+
+  def input_password
+    params[:password]
   end
 end
