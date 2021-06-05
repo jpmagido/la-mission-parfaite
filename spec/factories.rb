@@ -1,4 +1,12 @@
 FactoryBot.define do
+  factory :housing do
+    breakfast { [true, false].sample }
+    association :city
+    association :location
+    url { FFaker::Internet.http_url }
+    housing_type { 1 }
+  end
+
   factory :restaurant do
     name { FFaker::NameFR.name }
     kitchen { FFaker::Lorem.name }

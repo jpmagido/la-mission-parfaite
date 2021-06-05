@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_05_142545) do
+ActiveRecord::Schema.define(version: 2021_06_05_153602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,18 @@ ActiveRecord::Schema.define(version: 2021_06_05_142545) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "housings", force: :cascade do |t|
+    t.boolean "breakfast", null: false
+    t.text "url", null: false
+    t.integer "housing_type", null: false
+    t.bigint "city_id", null: false
+    t.bigint "location_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["city_id"], name: "index_housings_on_city_id"
+    t.index ["location_id"], name: "index_housings_on_location_id"
+  end
+
   create_table "locations", force: :cascade do |t|
     t.text "address"
     t.string "street_number"
@@ -77,6 +89,8 @@ ActiveRecord::Schema.define(version: 2021_06_05_142545) do
     t.index ["location_id"], name: "index_restaurants_on_location_id"
   end
 
+  add_foreign_key "housings", "cities"
+  add_foreign_key "housings", "locations"
   add_foreign_key "locations", "cities"
   add_foreign_key "restaurants", "cities"
   add_foreign_key "restaurants", "locations"
