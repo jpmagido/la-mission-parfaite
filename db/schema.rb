@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2021_06_05_142545) do
     t.string "name"
     t.string "kitchen"
     t.text "delivery"
+    t.boolean "vegan"
     t.bigint "city_id", null: false
     t.bigint "location_id", null: false
     t.datetime "created_at", precision: 6, null: false
