@@ -1,6 +1,7 @@
 <nav class="navbar navbar-light bg-light fixed-top">
   <div class="container-fluid">
     <%= link_to 'Home', root_path, class: 'navbar-brand' %>
+    <%= link_to 'Villes', cities_path, class: 'navbar-brand' %>
     <% if admin_signed_in? %>
       <%= link_to 'Dashboard Admin', administration_dashboard_path, class: 'navbar-brand' %>
     <% end %>

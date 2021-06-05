@@ -1,4 +1,3 @@
 <div>
-  <div> Nom de la ville : <%= city.name %> </div>
-  <%= link_to 'Modifier la ville', edit_city_path(city) %>
+  <div><%= city.name %> <%= link_to 'Modifier', edit_city_path(city) %>  </div>
 </div>
