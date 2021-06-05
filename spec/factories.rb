@@ -2,6 +2,7 @@ FactoryBot.define do
   factory :restaurant do
     name { FFaker::NameFR.name }
     kitchen { FFaker::NameFR.name }
+    delivery { ['uber', 'deliveroo'] }
     association :city
     association :location
   end
@@ -10,7 +11,7 @@ FactoryBot.define do
     address { FFaker::AddressFR.street_name }
     street_number { rand(1..100) }
     zip_code { FFaker::AddressFR.postal_code }
-    association :city    
+    association :city
   end
 
   factory :city do

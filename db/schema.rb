@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 2021_06_05_142545) do
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.string "kitchen"
+    t.text "delivery"
     t.bigint "city_id", null: false
     t.bigint "location_id", null: false
     t.datetime "created_at", precision: 6, null: false
