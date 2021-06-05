@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :restaurant do
     name { FFaker::NameFR.name }
-    kitchen { "MyString" }
+    kitchen { FFaker::NameFR.name }
     association :city
     association :location
   end
