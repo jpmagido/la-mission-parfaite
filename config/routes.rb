@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   root 'gateways#user'
 
   get 'static_pages/home'
+  get 'static_pages/refund'
 
   get 'gateways/user'
   get 'gateways/admin'

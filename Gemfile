@@ -46,6 +46,7 @@ end
 
 group :test do
   gem 'capybara', '>= 3.26'
+  gem 'pundit-matchers', '~> 1.6'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
