@@ -1,4 +1,18 @@
 FactoryBot.define do
+  factory :restaurant do
+    name { FFaker::NameFR.name }
+    kitchen { "MyString" }
+    association :city
+    association :location
+  end
+
+  factory :location do
+    address { FFaker::AddressFR.street_name }
+    street_number { rand(1..100) }
+    zip_code { FFaker::AddressFR.postal_code }
+    association :city    
+  end
+
   factory :city do
     name { 'Amiens' }
   end
