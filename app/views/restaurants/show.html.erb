@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="center">
+    <h1 class="my-4"><%= @restaurant.name  %></h1>
+
+    <p><%= @restaurant.kitchen %></p>
+    <p><%= @restaurant.vegan == true ? 'vegan' : 'pas vegan friendly' %></p>
+
+    <br>
+    <p><%= @restaurant.location.street_number %> <%= @restaurant.location.address %></p>
+    <p><%= @restaurant.location.zip_code %></p>
+    <p><%= @restaurant.city.name %></p>
+  </div>
+</div>

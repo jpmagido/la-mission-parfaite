@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
     registrations: 'admins/registrations'
@@ -10,7 +11,8 @@ Rails.application.routes.draw do
   end
 
   resources :cities, only: [:show, :index, :edit, :update]
-
+  resources :restaurants, only: [:show, :index]
+  get '/search', to: 'restaurants#search'
   root 'gateways#user'
 
   get 'static_pages/home'
