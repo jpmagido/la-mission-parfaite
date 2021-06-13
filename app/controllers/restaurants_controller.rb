@@ -8,14 +8,17 @@ class RestaurantsController < ApplicationController
   end
 
   def search
+
     if params[:search].blank?
       redirect_to restaurants_path
     else
       parameter = params[:search].downcase
       #parameter = params[:search].parameterize
-      #@results = Restaurant.where(name: parameter)
-      restaurants = City.find_by(name: params[:city])&.restaurants || Restaurant.all
-      @results = restaurants.where(name: parameter, vegan: params[:vegan])
+      @results = Restaurant.where(name: parameter)
+      # restaurants = City.find_by(name: params[:city])&.restaurants || Restaurant.all
+      is_vegan = params[:vegan] ||= false
+      debugger
+      @results = Restaurant.where(name: parameter, vegan: is_vegan)
 
       #vegan true / false
       # conditions si pas de paramètres

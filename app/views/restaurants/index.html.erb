@@ -14,11 +14,11 @@
         </div>
         <div class="input-group">
           <%= label_tag :vegan, "Vegan ?" %>
-          <%= check_box_tag :vegan %>
+          <%= check_box_tag 'vegan', true %>
         </div>
-          <div class="input-group-btn">
+        <div class="input-group-btn">
             <%= button_tag "Rechercher un restaurant", name: nil  %>
-          </div>
+        </div>
       <% end %>
     </div>
 
