@@ -12,11 +12,16 @@ class RestaurantsController < ApplicationController
       redirect_to restaurants_path
     else
       parameter = params[:search].downcase
-      @results = Restaurant.where(name: parameter)
-      # @results = Restaurant.all.where("lower(name) LIKE :search OR lower(restaurant.city) LIKE :search", search: "%#{parameter}%")
+      #parameter = params[:search].parameterize
+      #@results = Restaurant.where(name: parameter)
+      restaurants = City.find_by(name: params[:city])&.restaurants || Restaurant.all
+      @results = restaurants.where(name: parameter, vegan: params[:vegan])
+
+      #vegan true / false
+      # conditions si pas de paramètres
+      #@results = Restaurant.all.where("lower(name) LIKE :search OR lower(restaurant.city) LIKE :search", search: "%#{parameter}%")
     end
   end
-
 end
 
 
