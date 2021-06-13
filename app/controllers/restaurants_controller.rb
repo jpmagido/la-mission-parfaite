@@ -1,29 +1,43 @@
 class RestaurantsController < ApplicationController
-  def show
-    @restaurant = Restaurant.find(params[:id])
-  end
-
-  def index
-    @restaurants = Restaurant.all
-  end
+  helper_method :restaurant, :restaurants
 
   def search
+    #bonjour = valid_params.to_h
+    #bonjour.select.with_index { |_, i| i < bonjour.count - 1 }.each { |key, _| query[key] = self.send(key) }
 
-    if params[:search].blank?
-      redirect_to restaurants_path
-    else
-      parameter = params[:search].downcase
-      #parameter = params[:search].parameterize
-      @results = Restaurant.where(name: parameter)
-      # restaurants = City.find_by(name: params[:city])&.restaurants || Restaurant.all
-      is_vegan = params[:vegan] ||= false
-      debugger
-      @results = Restaurant.where(name: parameter, vegan: is_vegan)
+    query = {}
+    # faire avec des if :)
+    @results = city_restaurants.where(query)
+  end
 
-      #vegan true / false
-      # conditions si pas de paramètres
-      #@results = Restaurant.all.where("lower(name) LIKE :search OR lower(restaurant.city) LIKE :search", search: "%#{parameter}%")
-    end
+  private
+
+  def restaurants
+    @restaurants ||= Restaurant.all
+  end
+
+  def restaurant
+    @restaurant ||= restaurants.find(params[:id])
+  end
+
+  def vegan
+    @vegan ||= restaurant_params[:vegan] == 'true' ? true : false
+  end
+
+  def city_restaurants
+    @city_restaurants ||= City.find_by(id: restaurant_params[:city_restaurants][:city_id])&.restaurants || Restaurant.all
+  end
+
+  def name
+    @name ||= restaurant_params[:name].downcase
+  end
+
+  def valid_params
+    restaurant_params.delete_if { |_, value| value.empty? }
+  end
+
+  def restaurant_params
+    params.permit(:name, :vegan, city_restaurants: {})
   end
 end
 
