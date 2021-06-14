@@ -6,7 +6,12 @@ class RestaurantsController < ApplicationController
     #bonjour.select.with_index { |_, i| i < bonjour.count - 1 }.each { |key, _| query[key] = self.send(key) }
 
     query = {}
-    # faire avec des if :)
+    if params.has_key?(:vegan)
+      query[:vegan] = true
+    end
+    if params[:name] != ""
+      query[:name] = params[:name]
+    end
     @results = city_restaurants.where(query)
   end
 
@@ -20,25 +25,21 @@ class RestaurantsController < ApplicationController
     @restaurant ||= restaurants.find(params[:id])
   end
 
-  def vegan
-    @vegan ||= restaurant_params[:vegan] == 'true' ? true : false
-  end
-
   def city_restaurants
-    @city_restaurants ||= City.find_by(id: restaurant_params[:city_restaurants][:city_id])&.restaurants || Restaurant.all
+    @city_restaurants ||= City.find_by(id: params[:city_restaurants][:city_id])&.restaurants || Restaurant.all
   end
 
   def name
-    @name ||= restaurant_params[:name].downcase
+    @name ||= params[:name].downcase
   end
 
-  def valid_params
-    restaurant_params.delete_if { |_, value| value.empty? }
-  end
+  # def valid_params
+  #   restaurant_params.delete_if { |_, value| value.empty? }
+  # end
 
-  def restaurant_params
-    params.permit(:name, :vegan, city_restaurants: {})
-  end
+  # def restaurant_params
+  #   params.permit(:name, :vegan, city_restaurants: {})
+  # end
 end
 
 
