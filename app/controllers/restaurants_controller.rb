@@ -5,6 +5,14 @@ class RestaurantsController < ApplicationController
     #bonjour = valid_params.to_h
     #bonjour.select.with_index { |_, i| i < bonjour.count - 1 }.each { |key, _| query[key] = self.send(key) }
 
+
+    @results = city_restaurants.where(query)
+
+  end
+
+  private
+
+  def query
     query = {}
     if params.has_key?(:vegan)
       query[:vegan] = true
@@ -12,10 +20,8 @@ class RestaurantsController < ApplicationController
     if params[:name] != ""
       query[:name] = params[:name]
     end
-    @results = city_restaurants.where(query)
+    query
   end
-
-  private
 
   def restaurants
     @restaurants ||= Restaurant.all
