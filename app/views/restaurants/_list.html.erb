@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="center">
+    <h1 class="my-4"><%= restaurant.name  %></h1>
+
+    <p>Type de cuisine : <%= restaurant.kitchen %></p>
+    <p>Végétatien ?<%= is_vegan(restaurant) %></p>
+
+    <br>
+    <div> Localisation</div>
+    <p>Numero de rue : <%= restaurant.location.street_number %> <%= restaurant.location.address %></p>
+    <p> Zip_code : <%= restaurant.location.zip_code %></p>
+    <p>Ville : <%= restaurant.city.name %></p>
+  </div>
+</div>

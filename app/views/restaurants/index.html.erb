@@ -10,29 +10,20 @@
         </div>
         <div class="input-group">
           <%= label_tag :city_restaurants, "Rechercher par ville" %>
-           <%= collection_select :city_restaurants, :city_id, City.all.order('name ASC'), :id, :name, {include_blank: 'Selectionner une ville'} %>
+          <%= collection_select Restaurant, :city_id, City.all.order('name ASC'), :id, :name, { include_blank: 'Selectionner une ville' } %>
         </div>
         <div class="input-group">
           <%= label_tag :vegan, "Vegan ?" %>
           <%= check_box_tag 'vegan', true %>
         </div>
         <div class="input-group-btn">
-            <%= button_tag "Rechercher un restaurant", name: nil  %>
+          <%= button_tag "Rechercher un restaurant", name: nil %>
         </div>
       <% end %>
     </div>
-<% if @results != nil %>
-<h3>Résultats de la recherche</h3>
 
-<% @results.each do |result| %>
-  <%= render 'restaurant', restaurant: result  %>
-<% end %>
-
-<% end %>
-    <h1 class= "my-4">Liste des Restaurants</h1>
-    <% restaurants.each do |restau| %>
-      <h4><%= restau.name %></h4>
-      <p><%= link_to "Voir les détails du restaurant", restaurant_path(restau) %></p>
+    <% restaurants.each do |result| %>
+      <%= render 'restaurants/list', restaurant: result %>
     <% end %>
   </div>
 </div>
