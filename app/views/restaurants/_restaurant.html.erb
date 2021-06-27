@@ -4,7 +4,7 @@
     <h1 class="my-4"><%= restaurant.name  %></h1>
 
     <p><%= restaurant.kitchen %></p>
-    <p><%= restaurant.vegan == true ? 'vegan' : 'pas vegan friendly' %></p>
+    <p><%= is_vegan(restaurant) %></p>
 
     <br>
     <p><%= restaurant.location.street_number %> <%= restaurant.location.address %></p>
