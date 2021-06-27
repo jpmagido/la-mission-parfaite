@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :cities, only: [:show, :index, :edit, :update]
   resources :restaurants, only: [:show, :index]
-  get '/search', to: 'restaurants#search'
+  # get '/search', to: 'restaurants#search'
   root 'gateways#user'
 
   get 'static_pages/home'

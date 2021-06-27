@@ -4,5 +4,5 @@ class Location < ApplicationRecord
   validates_length_of :zip_code, in: 3..20
 
   belongs_to :city
-  has_many :restaurants
+  has_many :restaurants, dependent: :destroy
 end
