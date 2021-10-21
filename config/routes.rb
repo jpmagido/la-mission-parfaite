@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
     registrations: 'admins/registrations'
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :cities, only: [:show, :index, :edit, :update]
+  resources :restaurants, only: [:show, :index]
 
   root 'gateways#user'
 
