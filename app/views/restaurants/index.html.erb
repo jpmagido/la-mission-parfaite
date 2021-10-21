@@ -3,14 +3,14 @@
 
     <div>
 
-      <%= form_tag(restaurants_path, method: 'get') do %>
+      <%= form_tag restaurants_path, method: 'get' do %>
         <div class="input-group">
-          <%= label_tag :name, "Rechercher par nom" %>
-          <%= search_field_tag :name, nil, placeholder: "Rechercher", class: "form-control" %>
+          <%= label_tag :name, "Rechercher par nom :" %>
+          <%= search_field_tag :name, nil, placeholder: "Nom du restaurant", class: "form-control" %>
         </div>
         <div class="input-group">
-          <%= label_tag :city_restaurants, "Rechercher par ville" %>
-          <%= collection_select Restaurant, :city_id, City.all.order('name ASC'), :id, :name, { include_blank: 'Selectionner une ville' } %>
+          <%= label_tag :city, "Rechercher par ville" %>
+          <%= collection_select :restaurant, :city_id, City.all.order('name ASC'), :id, :name, { include_blank: 'Selectionner une ville' } %>
         </div>
         <div class="input-group">
           <%= label_tag :vegan, "Vegan ?" %>
