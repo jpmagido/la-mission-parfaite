@@ -13,18 +13,22 @@ class RestaurantsController < ApplicationController
   end
 
   def city_restaurants
-    @city_restaurants ||= City.find_by(id: params['restaurant'][:city_id])&.restaurants || Restaurant.all
+    @city_restaurants ||= City.find_by(id: params_restaurant[:city_id])&.restaurants || Restaurant.all
   end
 
   def query
     query = {}
-    query[:vegan] = true if params.has_key?(:vegan)
-    query[:name] = params[:name] if params[:name].present?
+    query[:vegan] = true if params_restaurant.has_key?(:vegan)
+    query[:name] = params_restaurant[:name] if params_restaurant[:name].present?
     query
   end
 
   def name
-    @name ||= params[:name].downcase
+    @name ||= params_restaurant[:name].downcase
+  end
+
+  def params_restaurant
+    params.require(:restaurant).permit(:vegan, :city_id, :name)
   end
 end
 
