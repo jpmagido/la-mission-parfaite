@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe "/devise/session/new.html.erb", type: :feature do
-  include_context 'passwords_creation'
+  include_context 'with_passwords_creation'
 
   let!(:admin) { create(:admin, password: 'blablabla') }
 

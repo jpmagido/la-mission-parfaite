@@ -13,7 +13,7 @@ RSpec.configure do |config|
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-  Pundit::Matchers.configure do |config|
-    config.user_alias = :admin
+  Pundit::Matchers.configure do |pundit_config|
+    pundit_config.user_alias = :admin
   end
 end

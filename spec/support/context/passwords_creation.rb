@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_context 'passwords_creation' do
+RSpec.shared_context 'with_passwords_creation' do
   include RSpec::Rails::ControllerExampleGroup
 
   before do

@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe "/devise/registration/new.html.erb", type: :feature do
-  include_context 'passwords_creation'
+  include_context 'with_passwords_creation'
 
   context 'Sign UP Devise Admin' do
     it 'should redirect to admin dashboard' do

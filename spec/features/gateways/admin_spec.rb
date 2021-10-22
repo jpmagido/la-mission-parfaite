@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe "/gateways/admin.html.erb", type: :feature do
-  include_context 'passwords_creation'
+  include_context 'with_passwords_creation'
 
   it 'should display content' do
     visit 'gateways/admin'
