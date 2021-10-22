@@ -1,0 +1,12 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+RSpec/DescribeClass:
+  IgnoredMetadata:
+    type:
+      - request
+      - controller
+
+Metrics/BlockLength:
+  IgnoredMethods: [ 'describe', 'context' ]

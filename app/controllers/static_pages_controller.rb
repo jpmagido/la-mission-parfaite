@@ -1,13 +1,10 @@
+# frozen_string_literal: true
+
 class StaticPagesController < ApplicationController
   before_action :home_redirection
 
-  def home
-
-  end
-
-  def refund
-
-  end
+  def home; end
+  def refund; end
 
   private
 

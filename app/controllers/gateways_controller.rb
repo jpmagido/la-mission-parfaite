@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GatewaysController < ApplicationController
   def user
     redirect_to static_pages_home_path if session_password_match?

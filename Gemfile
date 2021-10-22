@@ -37,6 +37,7 @@ group :development, :test do
   gem 'ffaker', '~> 2.18', '>= 2.20'
   gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
   gem 'shoulda-matchers', '~> 4.5', '>= 4.5.1'
+  gem 'rubocop-rails', require: false
 end
 
 group :development do

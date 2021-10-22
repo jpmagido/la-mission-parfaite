@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RestaurantsController < ApplicationController
   helper_method :restaurant, :restaurants
   include RestaurantsHelper
@@ -31,5 +33,3 @@ class RestaurantsController < ApplicationController
     params.require(:restaurant).permit(:vegan, :city_id, :name)
   end
 end
-
-

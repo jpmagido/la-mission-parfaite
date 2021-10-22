@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Location < ApplicationRecord
   validates_length_of :address, in: 3..40
   validates_length_of :street_number, in: 1..10
