@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'rexml', '~> 3.2', '>= 3.2.4'
 gem 'turbolinks', '~> 5'
 gem 'bcrypt', '~> 3.1', '>= 3.1.16'
+gem "nokogiri", ">= 1.12.5"
 
 #ACTIVE STORAGE
 gem "image_processing", ">= 1.2"
