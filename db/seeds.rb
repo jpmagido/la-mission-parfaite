@@ -35,9 +35,28 @@ def create_restaurants
   )
 end
 
+def create_housings
+  Housing.create!(
+    breakfast: true,
+    url: 'www.google.fr',
+    housing_type: 'hotel',
+    city_id: @city_1.id,
+    location_id: @location_1.id,
+  )
+  Housing.create!(
+    breakfast: false,
+    url: 'www.hltv.org',
+    housing_type: 'air_bnb_full',
+    city_id: @city_2.id,
+    location_id: @location_2.id,
+  )
+end
+
+
 def destroy_all_model
   Restaurant.destroy_all
   Location.destroy_all
+  Housing.destroy_all
   p 'All model destroyed :)'
 end
 
@@ -45,6 +64,7 @@ def perform
   destroy_all_model
   create_locations
   create_restaurants
+  create_housings
   p 'seed done'
 end
 

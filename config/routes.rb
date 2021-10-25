@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   resources :cities, only: [:show, :index, :edit, :update]
   resources :restaurants, only: [:show, :index]
+  resources :housings, only: [:show, :index]
+
 
   root 'gateways#user'
 
