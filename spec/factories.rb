@@ -8,7 +8,7 @@ FactoryBot.define do
     url { FFaker::Internet.http_url }
     housing_type { 1 }
   end
-
+  
   factory :restaurant do
     name { FFaker::NameFR.name }
     kitchen { FFaker::Lorem.name }
@@ -17,7 +17,17 @@ FactoryBot.define do
     association :city
     association :location
   end
-
+  
+  factory :admin_review do
+    first_name { 'Jean' }
+    last_name { 'Dupond' }
+    email { FFaker::Internet.email }
+    comment { FFaker::Lorem.name }
+    status { 'todo' }
+    association :admin
+    association :reviewable, factory: [:housing, :restaurant]
+  end
+  
   factory :location do
     address { FFaker::AddressFR.street_name }
     street_number { rand(1..100) }

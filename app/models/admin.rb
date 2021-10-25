@@ -6,4 +6,5 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable, :confirmable,
          :lockable
+  has_many :admin_reviews
 end

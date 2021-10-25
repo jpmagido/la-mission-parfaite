@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_22_015740) do
+ActiveRecord::Schema.define(version: 2021_10_25_122240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,21 @@ ActiveRecord::Schema.define(version: 2021_10_22_015740) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "admin_reviews", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.text "comment"
+    t.string "status"
+    t.bigint "admin_id"
+    t.string "reviewable_type"
+    t.bigint "reviewable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["admin_id"], name: "index_admin_reviews_on_admin_id"
+    t.index ["reviewable_type", "reviewable_id"], name: "index_admin_reviews_on_reviewable"
   end
 
   create_table "admins", force: :cascade do |t|
@@ -119,6 +134,7 @@ ActiveRecord::Schema.define(version: 2021_10_22_015740) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "admin_reviews", "admins"
   add_foreign_key "housings", "cities"
   add_foreign_key "housings", "locations"
   add_foreign_key "locations", "cities"
