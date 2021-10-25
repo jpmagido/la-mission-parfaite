@@ -12,5 +12,4 @@ class City < ApplicationRecord
       [city.name, city.id]
     end
   end
-  
 end
