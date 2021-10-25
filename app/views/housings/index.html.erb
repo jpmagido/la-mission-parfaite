@@ -4,26 +4,7 @@
   <hr>
 
   <div class="container">
-    <h3 class="text-center mb-4">Filtres </h3>
-    <%= form_tag("/search", method: "get") do %>
-      <div class="row text-center">
-        <div class="col-3">
-          <%= label_tag 'Ville: ' %>
-          <%= select_tag :city, options_for_select(City.cities_for_select, params[:city]) %> <br>
-        </div>
-        <div class="col-3">
-          <%= label_tag 'Type de couchages: ' %>
-          <%= select_tag :housing_type, options_for_select(Housing.housing_types, params[:city])%><br>
-        </div>
-        <div class="col-2">
-          <%= label_tag 'Petit déjeuner: ' %>
-          <%= check_box_tag :breakfast %><br>
-        </div>
-        <div class="col-4">
-          <%= submit_tag("Filtrer")%>
-        </div>
-      </div>
-    <% end %>
+      <%= render partial: 'housings/search_filter' %>
   </div>
 
   <hr>

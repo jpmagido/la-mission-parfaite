@@ -23,6 +23,9 @@ gem "nokogiri", ">= 1.12.5"
 #ACTIVE STORAGE
 gem "image_processing", ">= 1.2"
 
+#PAGINATION
+gem 'will_paginate', '~> 3.3'
+
 # Auth
 gem 'pundit', '~> 2.1', '>= 2.1.1'
 

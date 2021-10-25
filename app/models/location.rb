@@ -11,5 +11,4 @@ class Location < ApplicationRecord
   def get_full_address
     "#{self.street_number} #{self.address} #{self.zip_code}"
   end
-
 end
