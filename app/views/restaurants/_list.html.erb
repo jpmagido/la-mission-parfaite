@@ -1,20 +1,16 @@
-<div class="card" style="width: 18rem;">
-<img src="..." class="card-img-top" alt="...">
-<div class="center">
-  <h5 class="card-title"><%= restaurant.name  %></h5>
-  <div> Localisation</div>
-<div class="center">
+<div class="card" style="width: 18rem; display:inline-block; margin-left: 8px;"  >
+  <div class="center">
+    <h5 class="card-title"><strong><%= restaurant.name  %></strong></h5>
+    <img src="https://media-cdn.tripadvisor.com/media/photo-s/1b/19/d7/f7/galinette.jpg" class="card-img-top" alt="...">
+  <div class="center">
+    <p class="card-text"> Localisation</p>
+    <p class="card text">Type de cuisine : <%= restaurant.kitchen %></p>
+    <p class="card-text">Végétatien ?<%= is_vegan(restaurant) %></p>
+    <p class="card-text"> Numero de rue : <%= restaurant.location.street_number %> <%= restaurant.location.address %></p>
+    <p class="card-text"> Zip_code : <%= restaurant.location.zip_code %></p>
+    <p class="card-text"> Ville : <%= restaurant.city.name %></p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <%=link_to 'show', class:"btn btn-primary"%>
+  </div>
 </div>
-<div class="card-body">
-  <p>Type de cuisine : <%= restaurant.kitchen %></p>
-  <p>Végétatien ?<%= is_vegan(restaurant) %></p>
-  <p> Numero de rue : <%= restaurant.location.street_number %> <%= restaurant.location.address %></p>
-  <p> Zip_code : <%= restaurant.location.zip_code %></p>
-  <p> Ville : <%= restaurant.city.name %></p>
-  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-<a href="#" class="btn btn-primary">Go somewhere</a>
-<%=link_to  'show de city'%>
-</div>
-
 </div>
