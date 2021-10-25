@@ -52,7 +52,6 @@ def create_housings
   )
 end
 
-
 def destroy_all_model
   Restaurant.destroy_all
   Location.destroy_all

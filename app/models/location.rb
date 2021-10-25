@@ -8,7 +8,7 @@ class Location < ApplicationRecord
   belongs_to :city
   has_many :restaurants, dependent: :destroy
 
-  def get_address
+  def get_full_address
     "#{self.street_number} #{self.address} #{self.zip_code}"
   end
 

@@ -2,7 +2,7 @@
   <div class="card-body3">
     <h5 class="card-title">Card title</h5>
     <p class="card-text">type de couchage : <%= housing.housing_type %></p>
-    <p class="card-text">Adresse : <%= housing.location.get_address %></p>
+    <p class="card-text">Adresse : <%= housing.location.get_full_address %></p>
     <p class="card-text">Ville : <%= housing.city.name %></p>
     <a href=<%= "https://#{housing.url}" %> target= "_blank" class="btn btn-primary">Lien du couchage</a>
     <%= link_to 'show', housing_path(housing), class:"btn btn-primary" %>

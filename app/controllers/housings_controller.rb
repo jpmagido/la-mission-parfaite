@@ -22,6 +22,3 @@ class HousingsController < ApplicationController
   end
   
 end
-
-
-

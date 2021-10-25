@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   resources :restaurants, only: [:show, :index]
   resources :housings, only: [:show, :index]
 
-
   root 'gateways#user'
 
   get 'static_pages/home'
