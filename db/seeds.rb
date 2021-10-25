@@ -35,16 +35,42 @@ def create_restaurants
   )
 end
 
+def create_admin_reviews
+  AdminReview.create!(
+    first_name: "Admin1",
+    last_name: "Review1",
+    email: "admin1@mail.fr",
+    comment: "Commentaire du Premier admin message",
+    status: 1,
+    admin_id: Admin.last.id,
+    reviewable_type: "Restaurant",
+    reviewable_id: Restaurant.last.id
+  )
+  AdminReview.create!(
+    first_name: "Admin2",
+    last_name: "Review2",
+    email: "admin2@mail.fr",
+    comment: "Commentaire du Second admin message",
+    status: 2,
+    admin_id: Admin.last.id,
+    reviewable_type: "Housing",
+    reviewable_id: Housing.last.id
+  )
+end
+
 def destroy_all_model
   Restaurant.destroy_all
   Location.destroy_all
+  AdminReview.destroy_all
   p 'All model destroyed :)'
 end
 
 def perform
-  destroy_all_model
-  create_locations
-  create_restaurants
+  #destroy_all_model
+  #create_locations
+  #create_restaurants
+  AdminReview.destroy_all
+  create_admin_reviews
   p 'seed done'
 end
 

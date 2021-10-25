@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2021_10_25_122240) do
     t.string "last_name"
     t.string "email"
     t.text "comment"
-    t.string "status"
+    t.integer "status", default: 0
     t.bigint "admin_id"
     t.string "reviewable_type"
     t.bigint "reviewable_id"
