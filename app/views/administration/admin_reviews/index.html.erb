@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="text-center">Tous les Admin Messages</h1>
+  <h1 class="text-center">Tous les Admin Reviews</h1>
 
   <hr>
 
@@ -10,12 +10,12 @@
   <hr>
 
   <div class="row justify-content-center mt-4">
-    <% @admin_reviews.each do |admin_review| %>
+    <% admin_reviews.each do |admin_review| %>
       <div class="col-12 col-md-5">
         <div class="card mt-2 mt-md-4" style="margin-left: 2%;">
           <div class="card-body">
             <%= render partial: 'list', locals: { admin_review: admin_review } %>
-            <%= link_to 'Voir', administration_admin_message_path(admin_review), class:"btn btn-primary" %>
+            <%= link_to 'Voir', administration_admin_review_path(admin_review), class:"btn btn-primary" %>
           </div>
         </div>
       </div>
