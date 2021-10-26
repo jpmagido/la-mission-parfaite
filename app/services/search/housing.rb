@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Search
-  # works only with ::CompanyScrapping model
+  # works only with ::Housing model
   class Housing
     def self.filter_search(klass, attributes)
       attributes.to_unsafe_h.inject(klass) do |scope, (key, value)|

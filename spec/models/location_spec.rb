@@ -13,17 +13,11 @@ RSpec.describe Location, type: :model do
   it { should validate_length_of(:street_number).is_at_least(1).is_at_most(10) }
   it { should validate_length_of(:zip_code).is_at_least(3).is_at_most(20) }
 
-  describe "location.get_full_address" do
-    let(:location) { 
-    create(
-      :location, 
-      street_number: '8', 
-      address: 'rue Rabelais',
-      zip_code: '93000'
-      )
-    }
+  describe "location.full_address" do
+    let(:location) { create(:location, street_number: '8', address: 'rue Rabelais', zip_code: '93000') }
+    
     it "return string of full address" do
-      expect(location.get_full_address).to eq('8 rue Rabelais 93000')
+      expect(location.full_address).to eq('8 rue Rabelais 93000')
     end
   end
 end
