@@ -66,10 +66,9 @@ def destroy_all_model
 end
 
 def perform
-  #destroy_all_model
-  #create_locations
-  #create_restaurants
-  AdminReview.destroy_all
+  destroy_all_model
+  create_locations
+  create_restaurants
   create_admin_reviews
   p 'seed done'
 end
