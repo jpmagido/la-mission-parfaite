@@ -1,11 +1,27 @@
-<div class="card mt-2 mt-md-4" style="width: 18rem;margin-left: 2%;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Petit déjeuner ? : <%= housing.breakfast %>
-    <p class="card-text">type de couchage : <%= housing.housing_type %></p>
-    <p class="card-text">Adresse : <%= housing.location.full_address %></p>
-    <p class="card-text">Ville : <%= housing.city.name %></p>
-    <a href=<%= "https://#{housing.url}" %> target= "_blank" class="btn btn-primary">Lien du couchage</a>
-    <%= link_to 'show', housing_path(housing), class:"btn btn-primary" %>
+<div class="card mt-2 mt-md-4" style="margin-left: 2%;">
+  <div class="card-body ">
+    <h5 class="card-title text-center">Card title</h5>
+      <div class="row flex-column">
+        <div class="col">
+          <p class="card-text">Petit déjeuner ? : <%= housing.breakfast %>
+        </div>
+        <div class="col">
+          <p class="card-text">type de couchage : <%= housing.housing_type %></p>
+        </div>
+        <div class="col">
+          <p class="card-text">Adresse : <%= housing.location.full_address %></p>
+        </div>
+        <div class="col">
+          <p class="card-text">Ville : <%= housing.city.name %></p>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <a href=<%= "https://#{housing.url}" %> target= "_blank" class="btn btn-primary">Lien du couchage</a>
+        </div>
+        <div class="col">
+          <%= link_to 'show', housing_path(housing), class:"btn btn-danger" %>
+        </div>
+      </div>
   </div>
 </div>
