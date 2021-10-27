@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Housings Controller
 class HousingsController < ApplicationController
   helper_method :housing, :housings
 
@@ -16,5 +17,4 @@ class HousingsController < ApplicationController
   def housing
     @housing ||= Housing.find params[:id]
   end
-
 end

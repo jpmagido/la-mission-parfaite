@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe RestaurantsHelper, type: :helper do
-  let(:restaurant_vegan){ create(:restaurant, vegan: true)}
-  let(:restaurant){ create(:restaurant, vegan: false)}
+  let(:restaurant_vegan) { create(:restaurant, vegan: true) }
+  let(:restaurant) { create(:restaurant, vegan: false) }
 
   it 'returns vegan' do
     expect(helper.is_vegan(restaurant_vegan)).to eq('vegan')

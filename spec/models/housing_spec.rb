@@ -8,7 +8,7 @@ RSpec.describe Housing, type: :model do
   it { expect(housing).to be_valid }
   it { should belong_to(:city) }
   it { should belong_to(:location) }
-  it { should define_enum_for(:housing_type).with_values([:hotel, :air_bnb_shared ,:air_bnb_full, :cottage, :other]) }
+  it { should define_enum_for(:housing_type).with_values(%i(hotel air_bnb_shared air_bnb_full cottage other)) }
 
   describe 'Housing.search_and_paginate' do
     let(:params) { { housing: { url: 'www.google.fr' }, page: '1' } }
