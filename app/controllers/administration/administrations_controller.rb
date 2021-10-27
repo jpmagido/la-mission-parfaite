@@ -2,9 +2,6 @@
 
 module Administration
   class AdministrationsController < BaseController
-
-    def dashboard
-
-    end
+    def dashboard; end
   end
 end
