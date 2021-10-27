@@ -1,3 +1,26 @@
-<div>
-  <div><%= city.name %> <%= link_to 'Modifier', edit_city_path(city) %>  </div>
+ <div class="card mt-2 mt-md-4" style="margin-left: 2%;">
+  <div class="card-body">
+    <img src="..." class="card-img-top" alt="">
+    <h5 class="card-title text-center">Card title</h5>
+        
+    <div class="col">
+      <p class="card-text"><%= city.name  %> <%= link_to 'Modifier', edit_city_path(city) %></p>
+      <p> Dans cette ville il y a <%= city.count_housings %> housings </p>
+      <p> Dans cette ville il y a <%= city.count_restaurants %> restaurants </p>
+    </div>   
+
+    <div class="col">   
+      <% if  path=(cities_path) %>
+      <%= link_to 'show', city_path(city), class:"btn btn-primary" %>
+      <% else path=(city_path)  %>
+      <%= link_to 'Revenir sur la liste des villes', cities_path, class:"btn btn-primary" %>
+      <% end %>
+    </div>
+
+  </div>
 </div>
+
+
+
+
+

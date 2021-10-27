@@ -1,7 +1,12 @@
-<h2> Index des Villes </h2>
+<div class="container">
+  <h1 class="center-h2 mt-30"> Index des Villes </h2>
 
-<div>
-  <% cities.each do |city| %>
-    <%= render partial: 'cities/list', locals: { city: city } %>
-  <% end %>
-</div>
+  <div class="row tex-center">
+    <% cities.each do |city| %>
+      <div class="col-12 col-md-4 ">
+        <%= render partial: 'cities/list', locals: { city: city } %>
+      </div>   
+    <% end %>
+  </div>
+ </div> 
+ 
