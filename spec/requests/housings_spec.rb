@@ -19,4 +19,38 @@ RSpec.describe "Housings", type: :request do
     end
   end
 
+  describe "GET /search" do
+    context 'search breakfast' do
+      let(:city) { create(:city) }
+      let!(:house) { create(:housing, breakfast: true, city: city) }
+
+      it "return housings with only breakfast true" do
+        get housings_path, params: { breakfast: true }
+        expect(response.body).to include "#{house.breakfast}"
+        expect(response).to have_http_status(:success)
+      end
+    end
+
+    context "search city" do
+      let(:city) { create(:city, name: "Toulouse") }
+      let!(:house) { create(:housing, city: city) }
+
+      it "return Housings which have Toulouse in city's name" do
+        get housings_path, params: { city: "Toulouse" }
+        expect(response.body).to include "#{house.city.name}"
+        expect(response).to have_http_status(:success)
+      end
+    end
+
+    context "search housing_type" do
+      let(:city) { create(:city) }
+      let!(:house) { create(:housing, breakfast: true, city: city, housing_type: 2) }
+
+      it "return Housings which have Toulouse in city's name" do
+        get housings_path, params: { housing_type: 2 }
+        expect(response.body).to include "#{house.housing_type}"
+        expect(response).to have_http_status(:success)
+      end
+    end    
+  end
 end

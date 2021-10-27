@@ -20,7 +20,6 @@ module Search
 
           when :housing_type
             scope.where(housing_type: formatted_value)
-            #scope.where("#{scope.table_name}.housing_type ILIKE ?", "%#{formatted_value}%")
 
           when :all
             scope.all
