@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# Administration::AdministrationsController
 module Administration
+  # Administration::AdministrationsController
   class AdministrationsController < BaseController
     def dashboard; end
   end

@@ -22,8 +22,8 @@ gem 'rails', '~> 6.1.3'
 gem 'will_paginate', '~> 3.3'
 
 # SUPPORT
-gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bcrypt', '~> 3.1', '>= 3.1.16'
+gem 'bootsnap', '>= 1.4.4', require: false
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 gem 'enumerize', '~> 2.4'
 gem 'jbuilder', '~> 2.7'
@@ -63,4 +63,4 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: i%(mingw mswin x64_mingw jruby)
