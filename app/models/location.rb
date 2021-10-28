@@ -10,6 +10,6 @@ class Location < ApplicationRecord
   has_many :restaurants, dependent: :destroy
 
   def full_address
-    "#{self.street_number} #{self.address} #{self.zip_code}"
+    "#{street_number} #{address} #{zip_code}"
   end
 end
