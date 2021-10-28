@@ -1,29 +1,31 @@
-<div class="container">
-  <div class="center">
-
-    <div>
-
+<div class="container border border-5">
+<h3 class="text-center md-4">Filtres </h3>
+  <div class="row justify-content-center mt-4 ">
+    <div class="col-md-4">
       <%= form_tag restaurants_path, method: 'get' do %>
-        <div class="input-group">
-          <%= label_tag :name, "Rechercher par nom :" %>
-          <%= search_field_tag :name, nil, placeholder: "Nom du restaurant", class: "form-control" %>
-        </div>
-        <div class="input-group">
-          <%= label_tag :city, "Rechercher par ville" %>
-          <%= collection_select :restaurant, :city_id, City.all.order('name ASC'), :id, :name, { include_blank: 'Selectionner une ville' } %>
-        </div>
-        <div class="input-group">
-          <%= label_tag :vegan, "Vegan ?" %>
-          <%= check_box_tag 'vegan', true %>
-        </div>
-        <div class="input-group-btn">
-          <%= button_tag "Rechercher un restaurant", name: nil %>
-        </div>
-      <% end %>
+      <%= label_tag :name, "Rechercher par nom :" %>
+      <%= search_field_tag :name, nil, placeholder: "Nom du restaurant", class: "form-control-sm" %>
+      <div class="col-md-4">
+        <%= label_tag :vegan, "Vegan ?" %>
+        <%= check_box_tag 'vegan', true %>
+      </div>
     </div>
-
-    <% restaurants.each do |result| %>
-      <%= render 'restaurants/list', restaurant: result %>
-    <% end %>
+  <div class="col-md-4">
+    <%= label_tag :city, "Rechercher par ville" %>
+    <%= collection_select :restaurant, :city_id, City.all.order('name ASC'), :id, :name, { include_blank: 'Selectionner une ville' } %>
   </div>
+  <div class="col-md-4">
+    <%= button_tag "Rechercher un restaurant", name: nil %>
+  </div>
+  <% end %>
+  </div>
+</div>
+<div class="row tex-center">
+    <% restaurants.each do |result| %>
+  <div class="col-12 col-md-4">
+    <div class="card-body"> 
+      <%= render 'restaurants/list', restaurant: result %>
+    </div>
+  </div>
+  <% end %>
 </div>

@@ -1,16 +1,16 @@
-<div class="card" style="width: 18rem; display:inline-block; margin-left: 8px;"  >
-  <div class="center">
-    <h5 class="card-title"><strong><%= restaurant.name  %></strong></h5>
-    <img src="https://media-cdn.tripadvisor.com/media/photo-s/1b/19/d7/f7/galinette.jpg" class="card-img-top" alt="...">
-  <div class="center">
-    <p class="card-text"> Localisation</p>
-    <p class="card text">Type de cuisine : <%= restaurant.kitchen %></p>
-    <p class="card-text">Végétatien ?<%= is_vegan(restaurant) %></p>
-    <p class="card-text"> Numero de rue : <%= restaurant.location.street_number %> <%= restaurant.location.address %></p>
-    <p class="card-text"> Zip_code : <%= restaurant.location.zip_code %></p>
-    <p class="card-text"> Ville : <%= restaurant.city.name %></p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-    <%=link_to 'show', class:"btn btn-primary"%>
+<div class="card mt-2 mt-md-4" style="margin-left: 2%">
+  <div class="card-body">
+  <img src="" class="card-img-top" alt="..." title=<%=restaurant.name%>>
+  <h5 class="card-title"><strong><%= restaurant.name  %></strong></h5>
+    <div class="row flex-column">
+      <p class="card text">Type de cuisine : <%= restaurant.kitchen %></p>
+      <p class="card-text">Végétatien ?<%= is_vegan(restaurant) %></p>
+      <p class="card-text"> Localisation</p>
+      <p class="card-text"> Numero de rue : <%= restaurant.location.street_number %> <%= restaurant.location.address %></p>
+      <p class="card-text"> Ville : <%= restaurant.city.name %></p>
+      <p class="card-text"> Zip_code : <%= restaurant.location.zip_code %></p>
+    </div>
+      <%=link_to 'show' ,restaurant_path(restaurant), class:"btn btn-primary"%>
+      <%=link_to 'retour',restaurants_path, class:"btn btn-primary"%>
   </div>
-</div>
 </div>
