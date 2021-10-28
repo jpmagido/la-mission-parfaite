@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Application Controller
 class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :render_401
 
