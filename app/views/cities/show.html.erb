@@ -3,7 +3,10 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-md-6">
-      <%= render partial: 'cities/list' %>
+      <div class="card-body"> 
+        <%= render partial: 'cities/list' %>
+        <%= link_to 'Revenir sur la liste des villes', cities_path, class:"btn btn-primary" %>
+      </div>  
     </div>
   <div>
 </div>

@@ -4,9 +4,14 @@
   <div class="row tex-center">
     <% cities.each do |city| %>
       <div class="col-12 col-md-4 ">
-        <%= render partial: 'cities/list', locals: { city: city } %>
+         <div class="card-body"> 
+            <%= render partial: 'cities/list', locals: { city: city } %>
+              <div class="col">   
+                <%= link_to 'show', city_path(city), class:"btn btn-primary" %>
+              </div>
+         </div>
       </div>   
     <% end %>
   </div>
- </div> 
+</div> 
  
