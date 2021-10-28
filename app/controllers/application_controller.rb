@@ -2,7 +2,7 @@
 
 # Application Controller
 class ApplicationController < ActionController::Base
-  rescue_from Pundit::NotAuthorizedError, with: :render_401
+  rescue_from Pundit::NotAuthorizedError, with: :render401
 
   include Pundit
 
@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     current_admin
   end
 
-  def render_401(err)
+  def render401(err)
     redirect_to unauthorized_path(errors: err)
   end
 end
