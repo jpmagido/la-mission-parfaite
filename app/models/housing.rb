@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Housing Model
 class Housing < ApplicationRecord
   belongs_to :city
   belongs_to :location

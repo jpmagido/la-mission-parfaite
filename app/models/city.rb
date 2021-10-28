@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# City Model
 class City < ApplicationRecord
   has_many :locations
   has_many :restaurants

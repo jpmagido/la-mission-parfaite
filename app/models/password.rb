@@ -2,6 +2,7 @@
 
 require 'bcrypt'
 
+# Password Model
 class Password < ApplicationRecord
   extend Enumerize
   enumerize :auth_level, in: [:user, :admin]
