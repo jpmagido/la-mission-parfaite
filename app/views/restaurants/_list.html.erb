@@ -1,7 +1,5 @@
-<div class="card mt-2 mt-md-4" style="margin-left: 2%">
-  <div class="card-body">
   <img src="" class="card-img-top" alt="..." title=<%=restaurant.name%>>
-  <h5 class="card-title"><strong><%= restaurant.name  %></strong></h5>
+  <h5 class="card-title text center"><strong><%= restaurant.name  %></strong></h5>
     <div class="row flex-column">
       <p class="card text">Type de cuisine : <%= restaurant.kitchen %></p>
       <p class="card-text">Végétatien ?<%= is_vegan(restaurant) %></p>
@@ -10,7 +8,3 @@
       <p class="card-text"> Ville : <%= restaurant.city.name %></p>
       <p class="card-text"> Zip_code : <%= restaurant.location.zip_code %></p>
     </div>
-      <%=link_to 'show' ,restaurant_path(restaurant), class:"btn btn-primary"%>
-      <%=link_to 'retour',restaurants_path, class:"btn btn-primary"%>
-  </div>
-</div>

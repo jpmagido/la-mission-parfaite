@@ -20,12 +20,15 @@
   <% end %>
   </div>
 </div>
-<div class="row tex-center">
-    <% restaurants.each do |result| %>
-  <div class="col-12 col-md-4">
-    <div class="card-body"> 
-      <%= render 'restaurants/list', restaurant: result %>
+<div class="container border border-5">
+  <div class="row text-center">
+    <% restaurants.each do |restaurant| %>
+    <div class="col-12 col-md-3">
+    <div class="card-body border border-dark"> 
+      <%= render 'restaurants/list', restaurant: restaurant %>
+      <%=link_to 'show',restaurant_path(restaurant), class:"btn btn-primary"%>
     </div>
   </div>
   <% end %>
+  </div>
 </div>
