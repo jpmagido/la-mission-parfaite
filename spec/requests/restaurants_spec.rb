@@ -2,21 +2,21 @@
 
 require 'rails_helper'
 
-RSpec.describe "Restaurants", type: :request do
+RSpec.describe 'Restaurants', type: :request do
   let!(:city) { create(:city) }
   let!(:restaurant) { create(:restaurant, city: city, vegan: false, name: 'tacos kebab') }
   let!(:vegan_restaurant) { create(:restaurant, city: city, vegan: true) }
   let!(:restaurant_bis) { create(:restaurant) }
 
-  describe "GET /show" do
-    it "returns http success" do
+  describe 'GET /show' do
+    it 'returns http success' do
       get restaurant_path restaurant
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /index" do
-    it "returns http success" do
+  describe 'GET /index' do
+    it 'returns http success' do
       get restaurants_path
       expect(response).to have_http_status(:success)
     end

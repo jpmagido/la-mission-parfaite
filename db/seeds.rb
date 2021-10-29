@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
-@city_1 = City.last
-@city_2 = City.first
+@city1 = City.last
+@city2 = City.first
 
 def create_locations
-  @location_1 = Location.create!(
+  @location1 = Location.create!(
     address: 'rue du moulin',
     street_number: '30',
     zip_code: '83400',
-    city_id: @city_1.id
+    city_id: @city1.id
   )
-  @location_2 = Location.create!(
+  @location2 = Location.create!(
     address: 'avenue Carmen',
     street_number: '75',
     zip_code: '35200',
-    city_id: @city_2.id
+    city_id: @city2.id
   )
 end
 
@@ -23,21 +23,39 @@ def create_restaurants
     name: 'la galinette',
     kitchen: 'cuisine du Sud-Ouest',
     vegan: false,
-    city_id: @city_1.id,
-    location_id: @location_1.id
+    city_id: @city1.id,
+    location_id: @location1.id
   )
   Restaurant.create!(
     name: 'La voile bleue',
     kitchen: 'cuisine du marché',
     vegan: true,
     city_id: @city_2.id,
-    location_id: @location_2.id
+    location_id: @location2.id
+  )
+end
+
+def create_housings
+  Housing.create!(
+    breakfast: true,
+    url: 'www.google.fr',
+    housing_type: 'hotel',
+    city_id: @city1.id,
+    location_id: @location1.id
+  )
+  Housing.create!(
+    breakfast: false,
+    url: 'www.hltv.org',
+    housing_type: 'air_bnb_full',
+    city_id: @city2.id,
+    location_id: @location2.id
   )
 end
 
 def destroy_all_model
   Restaurant.destroy_all
   Location.destroy_all
+  Housing.destroy_all
   p 'All model destroyed :)'
 end
 
@@ -45,6 +63,7 @@ def perform
   destroy_all_model
   create_locations
   create_restaurants
+  create_housings
   p 'seed done'
 end
 
