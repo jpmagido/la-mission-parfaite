@@ -2,7 +2,7 @@
   <h5 class="card-title text center"><strong><%= restaurant.name  %></strong></h5>
     <div class="row flex-column">
       <p class="card text">Type de cuisine : <%= restaurant.kitchen %></p>
-      <p class="card-text">Végétatien ?<%= is_vegan(restaurant) %></p>
+      <p class="card-text">Végétarien ?<%= is_vegan(restaurant) %></p>
       <p class="card-text"> Localisation</p>
       <p class="card-text"> Numero de rue : <%= restaurant.location.street_number %> <%= restaurant.location.address %></p>
       <p class="card-text"> Ville : <%= restaurant.city.name %></p>
