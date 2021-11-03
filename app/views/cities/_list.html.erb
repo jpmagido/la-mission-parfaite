@@ -1,7 +1,6 @@
 
-<h5 class="card-title text-center">Card title</h5>
 <img src="..." class="card-img-top" alt="">
 <p class="card-text"><%= city.name  %> <%= link_to 'Modifier', edit_city_path(city) %></p>
-<p> Dans cette ville il y a <%= city.count_housings %> housings </p>
-<p> Dans cette ville il y a <%= city.count_restaurants %> restaurants </p>
+<p> Dans cette ville il y a <%= city.housings.count %> logement </p>
+<p> Dans cette ville il y a <%= city.restaurants.count %> restaurants </p>
 <p> Autre description </p>
