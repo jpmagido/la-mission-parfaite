@@ -1,0 +1,9 @@
+fr:
+  activerecord:
+    attributes:
+      admin_review:
+        status:
+          undefined: "Non défini"
+          todo: "A Faire"
+          accepted: "Validé"
+          error: "Erreur"

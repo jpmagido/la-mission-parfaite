@@ -8,9 +8,17 @@ class AdminReview < ApplicationRecord
   belongs_to :reviewable, polymorphic: true
   belongs_to :admin, optional: true
 
+  def status_french
+    I18n.t("activerecord.attributes.admin_review.status.#{self.status}")
+  end
+
   def self.search_and_paginate(params, per_page: 48)
     ::Search::AdminReview.filter_search(self, params).paginate(page: params[:page].to_i, per_page: per_page)
   rescue StandardError
     ::Search::AdminReview.filter_search(self, params).paginate(page: 1, per_page: per_page)
+  end
+
+  def self.status_human
+    Hash[AdminReview.statuses.map { |k,v| [I18n.t("activerecord.attributes.admin_review.status.#{k}"), v] }]
   end
 end

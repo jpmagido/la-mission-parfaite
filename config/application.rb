@@ -20,6 +20,9 @@ module LaMissionParfaite
                       request_specs: true
     end
 
+    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
+    config.i18n.default_locale = :fr
+    
     config.time_zone = 'Paris'
     # config.eager_load_paths << Rails.root.join('extras')
   end
