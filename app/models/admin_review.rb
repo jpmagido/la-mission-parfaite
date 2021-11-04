@@ -13,7 +13,7 @@ class AdminReview < ApplicationRecord
   end
 
   def self.status_human
-    Hash[AdminReview.statuses.map { |k,v| [I18n.t("activerecord.attributes.admin_review.status.#{k}"), v] }]
+    Hash[AdminReview.statuses.map { |k,v| [I18n.t("activerecord.attributes.admin_review.status.#{k}"), v.to_i] }]
   end
 
   def self.search_and_paginate(params, per_page: 48)
