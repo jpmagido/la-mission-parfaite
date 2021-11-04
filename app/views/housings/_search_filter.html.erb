@@ -9,7 +9,7 @@
     </div>
     <div class="col">
       <div class="form-group">
-        <%= select_tag :housing_type, options_for_select(Housing.housing_types, params[:city]), include_blank: "Toutes les types de couchages"%>
+        <%= select_tag :housing_type, options_for_select(Housing.housing_types_human, params[:city]), include_blank: "Toutes les types de couchages"%>
       </div>
     </div>
     <div class="col">
