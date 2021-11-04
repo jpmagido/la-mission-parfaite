@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Admin Model
 class Admin < ApplicationRecord
   # Include default devise modules. Others available are:
   # :timeoutable and :omniauthable

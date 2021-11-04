@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Administration
+  # Administration::PasswordsController
   class PasswordsController < BaseController
     helper_method :password, :passwords
 
