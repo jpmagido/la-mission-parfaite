@@ -10,6 +10,6 @@ class Location < ApplicationRecord
   has_many :restaurants, dependent: :destroy
 
   def full_address
-    "#{street_number} #{address} #{zip_code}"
+    [street_number, address, zip_code, city.name].compact.join(' ')
   end
 end

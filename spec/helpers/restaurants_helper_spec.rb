@@ -7,10 +7,10 @@ RSpec.describe RestaurantsHelper, type: :helper do
   let(:restaurant) { create(:restaurant, vegan: false) }
 
   it 'returns vegan' do
-    expect(helper.is_vegan(restaurant_vegan)).to eq('vegan')
+    expect(helper.is_vegan(restaurant_vegan)).to eq('Végétarien')
   end
 
   it 'returns non vegan' do
-    expect(helper.is_vegan(restaurant)).to eq('pas vegan friendly')
+    expect(helper.is_vegan(restaurant)).to eq('Non Végétarien')
   end
 end
