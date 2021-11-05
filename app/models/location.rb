@@ -7,4 +7,5 @@ class Location < ApplicationRecord
 
   belongs_to :city
   has_many :restaurants, dependent: :destroy
+  has_many :housings, dependent: :destroy
 end

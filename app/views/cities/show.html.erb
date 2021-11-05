@@ -1,12 +1,3 @@
-<h2 class="center-h2 mt-30"> Page de la ville: <%= city.name %></h2>
-
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-6">
-      <div class="card-body border border-dark"> 
-        <%= render partial: 'cities/list' %>
-        <%= link_to 'Revenir sur la liste des villes', cities_path, class:"btn btn-primary" %>
-      </div>  
-    </div>
-  <div>
+  <%= render partial: 'cities/list' %>
 </div>

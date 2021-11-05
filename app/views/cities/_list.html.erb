@@ -1,6 +1,20 @@
+<div class="col-12 col-md-3 mt-2">
+  <div class="card" style="width: 20rem; height: 13rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= city.name %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= city.name %></h6>
+      <p class="card-text"><%= city.housings.count %> Logements</p>
+      <p class="card-text"><%= city.restaurants.count %> Restaurants</p>
 
-<img src="..." class="card-img-top" alt="">
-<p class="card-text"><%= city.name  %> <%= link_to 'Modifier', edit_city_path(city) %></p>
-<p> Dans cette ville il y a <%= city.housings.count %> logement </p>
-<p> Dans cette ville il y a <%= city.restaurants.count %> restaurants </p>
-<p> Autre description </p>
+      <% unless current_page?(city_path(city)) %>
+        <%= link_to 'Détails', city_path(city), class: 'card-link' %>
+      <% end %>
+
+      <% if current_page?(city_path(city)) %>
+        <%= link_to 'Modifier', edit_city_path(city), class: 'card-link' %>
+      <% end %>
+
+      <%= link_to 'Retour', :back, class: 'card-link' %>
+    </div>
+  </div>
+</div>

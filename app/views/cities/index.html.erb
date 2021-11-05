@@ -1,17 +1,7 @@
 <div class="container">
-  <h1 class="center-h2 mt-30"> Index des Villes </h2>
-
   <div class="row tex-center">
     <% cities.each do |city| %>
-      <div class="col-12 col-md-4 ">
-         <div class="card-body mt-30 border border-dark"> 
-            <%= render partial: 'cities/list', locals: { city: city } %>
-              <div class="col">   
-                <%= link_to 'Détails', city_path(city), class:"btn btn-primary" %>
-              </div>
-         </div>
-      </div>   
+      <%= render partial: 'cities/list', locals: { city: city } %>
     <% end %>
   </div>
-</div> 
- 
+</div>
