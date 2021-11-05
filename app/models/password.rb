@@ -2,6 +2,7 @@
 
 require 'bcrypt'
 
+# Password Model
 class Password < ApplicationRecord
   extend Enumerize
   enumerize :auth_level, in: [:user, :admin]
@@ -14,7 +15,7 @@ class Password < ApplicationRecord
   scope :admin_password, -> { find_by(auth_level: :admin) }
 
   def is_equal_to?(password)
-    BCrypt::Password.new(self.content) == password
+    BCrypt::Password.new(content) == password
   end
 
   private

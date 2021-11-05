@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Cities Controller
 class CitiesController < ApplicationController
   helper_method :city, :cities
 
