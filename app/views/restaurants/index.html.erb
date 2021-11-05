@@ -1,35 +1,31 @@
 <div class="container">
-<h3 class="text-center md-4">Filtres </h3>
-  <div class="row justify-content-center mt-4 ">
-    <div class="col-md-4">
-      <%= form_tag restaurants_path, method: 'get' do %>
-      <%= label_tag :name, "Rechercher par nom :" %>
-      <%= search_field_tag :name, nil, placeholder: "Nom du restaurant", class: "form-control-sm" %>
-      <div class="col-md-4">
-        <%= label_tag :vegan, "Vegan ?" %>
-        <%= check_box_tag 'vegan', true %>
+  <%= form_tag restaurants_path, method: 'get' do %>
+    <div class="d-flex justify-content-around mt-4 border">
+      <div class="p-2">
+        <%= label_tag :name, "Rechercher par nom :" %>
+        <%= search_field_tag :name, nil, placeholder: "Nom du restaurant", class: "form-control-sm" %>
       </div>
-    </div>
-  <div class="col-md-4">
-    <%= label_tag :city, "Rechercher par ville" %>
-    <%= collection_select :restaurant, :city_id, City.all.order('name ASC'), :id, :name, { include_blank: 'Selectionner une ville' } %>
-  </div>
-  <div class="col-md-4">
-    <%= button_tag "Rechercher un restaurant", name: nil %>
-  </div>
+      <div class="p-2">
+        <%= label_tag :vegan, "Végétarien ?" %>
+        <%= check_box_tag :vegan, true %>
+      </div>
+      <div class="p-2">
+        <%= label_tag :city_id, "Rechercher par ville" %>
+        <%= collection_select :restaurant, :city_id, City.all.order('name ASC'), :id, :name, { include_blank: 'Selectionner une ville' } %>
+      </div>
+      <div class="p-2">
+        <%= button_tag "Rechercher un restaurant", name: nil %>
+      </div>
   <% end %>
   </div>
 </div>
+
 <br>
+
 <div class="container">
   <div class="row text-center">
     <% restaurants.each do |restaurant| %>
-    <div class="col-12 col-md-3">
-    <div class="card-body border border-dark" style="margin-top: 10%;"> 
       <%= render 'restaurants/list', restaurant: restaurant %>
-      <%=link_to 'show',restaurant_path(restaurant), class:"btn btn-primary"%>
-    </div>
-  </div>
-  <% end %>
+    <% end %>
   </div>
 </div>

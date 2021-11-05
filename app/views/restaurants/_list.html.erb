@@ -1,9 +1,13 @@
-  <h5 class="card-title text center"><strong><%= restaurant.name  %></strong></h5>
-    <div class="row flex-column">
-      <p class="card text">Type de cuisine : <%= restaurant.kitchen %></p>
-      <p class="card-text">Végétarien ?<%= is_vegan(restaurant) %></p>
-      <p class="card-text"> Localisation</p>
-      <p class="card-text"> Numero de rue : <%= restaurant.location.street_number %> <%= restaurant.location.address %></p>
-      <p class="card-text"> Ville : <%= restaurant.city.name %></p>
-      <p class="card-text"> Zip_code : <%= restaurant.location.zip_code %></p>
+<div class="col-12 col-md-3">
+  <div class="card" style="width: 20rem; height: 13rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= restaurant.name %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= restaurant.kitchen %> (<%= is_vegan(restaurant) %>)</h6>
+      <p class="card-text">Adresse: <%= restaurant.location.full_address %></p>
+
+      <%= link_to 'Restaurant', restaurant_path(restaurant), class: 'card-link' %>
+      <%= link_to 'Ville', city_path(restaurant.city), class: 'card-link' %>
+      <%= link_to 'Retour', :back, class: 'card-link' %>
     </div>
+  </div>
+</div>

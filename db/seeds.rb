@@ -27,7 +27,7 @@ def create_restaurants
     location_id: @location_1.id
   )
   Restaurant.create!(
-    name: 'La voile bleue',
+    name: 'la voile bleue',
     kitchen: 'cuisine du marché',
     vegan: true,
     city_id: @city_2.id,

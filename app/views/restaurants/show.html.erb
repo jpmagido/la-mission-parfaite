@@ -1,11 +1,4 @@
-<h2 class="center-h2 mt-30"> Page du restaurant: <%= restaurant.name %></h2>
+<br>
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-6">
-      <div class="card-body border border-dark">
-        <%= render 'restaurants/list' %>
-        <%=link_to 'index restaurants',restaurants_path, class:"btn btn-primary"%>
-        <%=link_to 'show ville',city_path, class:"btn btn-primary"%>
-      </div>
-  </div>
+  <div> <%= render 'restaurants/list' %> </div>
 </div>
