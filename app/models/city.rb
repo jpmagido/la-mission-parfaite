@@ -4,6 +4,7 @@
 class City < ApplicationRecord
   has_many :locations
   has_many :restaurants
+  has_many :housings
 
   validates :name, presence: true
   validates :name, length: { in: 3..20 }

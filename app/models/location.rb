@@ -8,6 +8,7 @@ class Location < ApplicationRecord
 
   belongs_to :city
   has_many :restaurants, dependent: :destroy
+  has_many :housings, dependent: :destroy
 
   def full_address
     [street_number, address, zip_code, city.name].compact.join(' ')
