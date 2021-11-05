@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
-
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
     registrations: 'admins/registrations'
   }
 
   namespace :administration do
-    resources :passwords, only: [:edit, :update, :show, :index]
+    resources :passwords, only: %i(edit update show index)
     get 'dashboard', to: 'administrations#dashboard'
   end
 
-  resources :cities, only: [:show, :index, :edit, :update]
-  resources :restaurants, only: [:show, :index]
+  resources :cities, only: %i(show index edit update)
+  resources :restaurants, only: %i(show index)
+  resources :housings, only: %i(show index)
 
   root 'gateways#user'
 

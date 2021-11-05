@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Restaurants Controller
 class RestaurantsController < ApplicationController
   helper_method :restaurant, :restaurants
   include RestaurantsHelper

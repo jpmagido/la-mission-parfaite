@@ -2,6 +2,6 @@
 
 module RestaurantsHelper
    def is_vegan(restaurant)
-    restaurant.vegan == true ? 'vegan' : 'pas vegan friendly'
+    restaurant.vegan == true ? 'Végétarien' : 'Non Végétarien'
   end
 end

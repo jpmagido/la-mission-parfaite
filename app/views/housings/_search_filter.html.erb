@@ -1,0 +1,33 @@
+<h3 class="text-center mb-4">Filtres </h3>
+
+<%= form_tag("#search", method: "get", remote: false, class: "") do %>
+  <div class="row text-center">
+    <div class="col">
+      <div class="form-group">
+        <%= select_tag :city, options_for_select(City.cities_for_select, params[:city]), include_blank: "Toutes les villes" %>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <%= select_tag :housing_type, options_for_select(Housing.housing_types, params[:city]), include_blank: "Toutes les types de couchages"%>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <%= label_tag 'Petit déjeuner: ' %>
+        <%= check_box_tag :breakfast %>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <%= label_tag 'Retirer les filtres' %>
+        <%= check_box_tag :all %>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <%= button_tag 'Recherche', { class: 'btn btn-secondary' } %>
+      </div>
+    </div>
+  </div>
+<% end %>

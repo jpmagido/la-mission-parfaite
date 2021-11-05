@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Static Pages Controller
 class StaticPagesController < ApplicationController
   before_action :home_redirection
 
