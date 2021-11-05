@@ -9,11 +9,7 @@ class AdminReview < ApplicationRecord
   belongs_to :admin, optional: true
 
   def status_french
-    I18n.t("activerecord.attributes.admin_review.status.#{self.status}")
-  end
-
-  def self.status_human
-    Hash[AdminReview.statuses.map { |k,v| [I18n.t("activerecord.attributes.admin_review.status.#{k}"), v.to_i] }]
+    I18n.t("activerecord.attributes.admin_review.status.#{status}")
   end
 
   def self.search_and_paginate(params, per_page: 48)

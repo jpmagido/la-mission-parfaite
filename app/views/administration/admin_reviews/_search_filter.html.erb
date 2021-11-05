@@ -4,7 +4,7 @@
   <div class="row text-center">
     <div class="col">
       <div class="form-group">
-        <%= select_tag :status, options_for_select(AdminReview.status_human, params[:status]), include_blank: "Tous les status" %>
+        <%= select_tag :status, options_for_select(enum_french_translation(enum: AdminReview.statuses, model_name: 'admin_review', attribut: 'status'), params[:status]), include_blank: "Tous les status" %>
       </div>
     </div>
     <div class="col">

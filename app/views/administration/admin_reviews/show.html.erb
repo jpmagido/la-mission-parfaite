@@ -1,7 +1,7 @@
 <h2 class="text-center">Demande de validation par: <%= admin_review.first_name %> <%= admin_review.last_name %>(<%= admin_review.status %>)</h2>
 
 <div class="container">
-  <div class="row justify-content-center mt-4">
+  <div class="row justify-content-center align-items-center mt-4">
     <div class="col">
       <%= render partial: 'list', locals: { admin_review: admin_review }%>
       <%= link_to 'Retour', administration_admin_reviews_path %>

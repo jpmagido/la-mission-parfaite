@@ -16,10 +16,6 @@ class Housing < ApplicationRecord
     I18n.t("activerecord.attributes.housing.housing_types.#{self.housing_type}")
   end
 
-  def self.housing_types_human
-    Hash[Housing.housing_types.map { |k,v| [I18n.t("activerecord.attributes.housing.housing_types.#{k}"), v] }]
-  end
-
   def self.search_and_paginate(params, per_page: 48)
     ::Search::Housing.filter_search(self, params).paginate(page: params[:page].to_i, per_page: per_page)
   rescue StandardError
