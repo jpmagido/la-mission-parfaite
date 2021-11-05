@@ -11,7 +11,7 @@ FactoryBot.define do
 
   factory :restaurant do
     name { FFaker::NameFR.name }
-    kitchen { FFaker::Lorem.name }
+    kitchen { FFaker::Lorem.word }
     delivery { ['uber', 'deliveroo'] }
     vegan { [true, false].sample }
     association :city
