@@ -25,7 +25,7 @@
 <div class="container">
   <div class="row text-center">
     <% restaurants.each do |restaurant| %>
-      <%= render 'restaurants/list', restaurant: restaurant %>
+      <%= render partial: 'restaurants/list', locals: { restaurant: restaurant } %>
     <% end %>
   </div>
 </div>
