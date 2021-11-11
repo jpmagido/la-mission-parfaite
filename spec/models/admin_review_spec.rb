@@ -17,5 +17,5 @@ RSpec.describe AdminReview, type: :model do
   it { should validate_length_of(:email).is_at_least(1).is_at_most(100) }
   it { should validate_length_of(:first_name).is_at_least(2).is_at_most(100) }
   it { should validate_length_of(:last_name).is_at_least(2).is_at_most(100) }
-  it { should validate_length_of(:comment).is_at_least(2).is_at_most(100) }
+  it { should validate_length_of(:comment).is_at_least(2).is_at_most(1000) }
 end

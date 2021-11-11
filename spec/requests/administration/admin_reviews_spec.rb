@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Administration::AdminReviews', type: :request do
+  before { sign_in admin }
+
   let(:admin) { create(:admin) }
   let(:restaurant) { create(:restaurant) }
   let(:admin_review) { create(:admin_review, reviewable: restaurant, admin_id: admin, status: 1) }
