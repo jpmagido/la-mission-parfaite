@@ -28,6 +28,7 @@ gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 gem 'enumerize', '~> 2.4'
 gem 'jbuilder', '~> 2.7'
 gem 'nokogiri', '>= 1.12.5'
+gem 'rails-i18n', '~> 6.0'
 gem 'rexml', '~> 3.2', '>= 3.2.4'
 gem 'turbolinks', '~> 5'
 

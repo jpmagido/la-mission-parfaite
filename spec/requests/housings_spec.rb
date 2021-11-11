@@ -26,7 +26,7 @@ RSpec.describe 'Housings', type: :request do
 
       it 'return housings with breakfast' do
         get housings_path, params: { breakfast: true }
-        expect(response.body).to include house.breakfast.to_s
+        expect(response.body).to include house.breakfast_french.to_s
         expect(response).to have_http_status(:success)
       end
     end
@@ -48,7 +48,7 @@ RSpec.describe 'Housings', type: :request do
 
       it 'return Housings which are full air bnb' do
         get housings_path, params: { housing_type: 2 }
-        expect(response.body).to include house.housing_type.to_s
+        expect(response.body).to include house.housing_type_french.to_s
         expect(response).to have_http_status(:success)
       end
     end    

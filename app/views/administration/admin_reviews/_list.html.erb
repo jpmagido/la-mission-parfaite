@@ -1,0 +1,8 @@
+<h5 class="card-title">Card title</h5>
+<p class="card-text">Prénom : <%= admin_review.first_name %></p>
+<p class="card-text">Nom : <%= admin_review.last_name %></p>
+<p class="card-text">Commentaires : <%= admin_review.comment %>
+<p class="card-text">Status : <%= admin_review.status_fr %></p>
+<p class="card-text">Email : <%= admin_review.email %></p>
+<p class="card-text">Type de message : <%= admin_review.reviewable_type %></p>
+<%= link_to 'Modifier', edit_administration_admin_review_path(admin_review)%>

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   }
 
   namespace :administration do
+    resources :admin_reviews, only: %i(edit update show index)
     resources :passwords, only: %i(edit update show index)
     get 'dashboard', to: 'administrations#dashboard'
   end

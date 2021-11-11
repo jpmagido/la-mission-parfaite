@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 class="text-center">Tous les Admin Reviews</h1>
+
+  <hr>
+
+  <div class="container">
+    <%= render partial: 'search_filter' %>
+  </div>
+
+  <hr>
+
+  <div class="row justify-content-center mt-4">
+    <% admin_reviews.each do |admin_review| %>
+      <div class="col-12 col-md-5">
+        <div class="card mt-2 mt-md-4" style="margin-left: 2%;">
+          <div class="card-body">
+            <%= render partial: 'list', locals: { admin_review: admin_review } %>
+            <%= link_to 'Voir Détails', administration_admin_review_path(admin_review), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

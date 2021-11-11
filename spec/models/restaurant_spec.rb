@@ -10,5 +10,5 @@ RSpec.describe Restaurant, type: :model do
   it { should belong_to(:city) }
 
   it { should validate_length_of(:name).is_at_least(2).is_at_most(40) }
-  it { should validate_length_of(:kitchen).is_at_least(2).is_at_most(20) }
+  it { should validate_length_of(:kitchen).is_at_least(2).is_at_most(40) }
 end

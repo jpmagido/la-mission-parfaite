@@ -1,0 +1,16 @@
+<h3 class="text-center mb-4">Filtres </h3>
+
+<%= form_tag("#search", method: "get", remote: false, class: "") do %>
+  <div class="row text-center">
+    <div class="col">
+      <div class="form-group">
+        <%= select_tag :status, options_for_select(enum_french_translation(enum: AdminReview.statuses, model_name: 'admin_review', attribut: 'status'), params[:status]), include_blank: "Tous les status" %>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <%= button_tag 'Recherche', { class: 'btn btn-secondary' } %>
+      </div>
+    </div>
+  </div>
+<% end %>

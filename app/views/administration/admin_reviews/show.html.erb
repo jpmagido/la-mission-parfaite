@@ -1,0 +1,13 @@
+<h2 class="text-center">Demande de validation par: <%= admin_review.full_name %></h2>
+
+<h4> Type de Review: <%= admin_review.reviewable_type %></h4>
+<h4> Status: <%= admin_review.status_fr %></h4>
+
+<div class="container">
+  <div class="row justify-content-center align-items-center mt-4">
+    <div class="col">
+      <%= render partial: 'list', locals: { admin_review: admin_review }%>
+      <%= link_to 'Retour', administration_admin_reviews_path %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+fr:
+  activerecord:
+    attributes:
+      admin_review:
+        status:
+          undefined: "Non défini"
+          todo: "A Faire"
+          accepted: "Validé"
+          error: "Erreur"
+      housing:
+        housing_types:
+          hotel: "Hotel"
+          air_bnb_shared: "AirBnB partagé"
+          air_bnb_full: "AirBnB complet"
+          cottage: "Chalet"
+          other: "Autre"
+        breakfast:
+          true: "Présent"
+          false: "Absent"

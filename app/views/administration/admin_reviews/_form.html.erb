@@ -1,0 +1,49 @@
+<%= form_with model: [:administration, admin_review] do |form| %>
+  <div class="row">
+    <div class="col-4">
+      <div class="form-group">
+        <div class="d-flex justify-content-between">
+          <div class="form-label"> Prénom :</div>
+          <%= form.text_field :first_name %>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <div class="d-flex justify-content-between">
+          <div class="form-label"> Nom de famille :</div>
+          <%= form.text_field :last_name %>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <div class="d-flex justify-content-between">
+          <div class="form-label"> Email :</div>
+          <%= form.text_field :email %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col-4">
+      <div class="form-group">
+        <div class="d-flex justify-content-between">
+          <div class="form-label"> Commentaire :</div>
+          <%= form.text_field :comment %>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <div class="d-flex justify-content-between">
+          <div class="form-label"> Status :</div>
+          <%= form.select :status, options_for_select(enum_french_for_edit(enum: AdminReview.statuses, model_name: 'admin_review', attribut: 'status'), params[:status]), include_blank: "Tous les status" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-4">
+    <%= form.submit %>
+  </div>
+<% end %>
