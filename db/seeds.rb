@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
-@city1 = City.last
-@city2 = City.first
+def find_cities
+  @city1 = City.last
+  @city2 = City.first
+end
 
 def create_locations
   @location1 = Location.create!(
@@ -27,10 +29,10 @@ def create_restaurants
     location_id: @location1.id
   )
   Restaurant.create!(
-    name: 'La voile bleue',
+    name: 'la voile bleue',
     kitchen: 'cuisine du marché',
     vegan: true,
-    city_id: @city_2.id,
+    city_id: @city2.id,
     location_id: @location2.id
   )
 end
@@ -84,6 +86,7 @@ end
 
 def perform
   destroy_all_model
+  find_cities
   create_locations
   create_restaurants
   create_housings
