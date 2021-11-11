@@ -8,7 +8,11 @@ class AdminReview < ApplicationRecord
   belongs_to :reviewable, polymorphic: true
   belongs_to :admin, optional: true
 
-  def status_french
+  def full_name
+    [first_name, last_name].compact.join(' ')
+  end
+
+  def status_fr
     I18n.t("activerecord.attributes.admin_review.status.#{status}")
   end
 

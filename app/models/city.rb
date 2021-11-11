@@ -5,8 +5,8 @@ class City < ApplicationRecord
   has_many :locations
   has_many :restaurants
 
-  validates :name, presence: true
-  validates :name, length: { in: 3..20 }
+  validates :name, presence: true, uniqueness: true
+  validates :name, length: { in: 3..50 }
 
   def self.cities_for_select
     all.map do |city|

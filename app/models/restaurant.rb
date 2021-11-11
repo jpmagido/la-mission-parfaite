@@ -4,8 +4,8 @@
 class Restaurant < ApplicationRecord
   serialize :delivery, Array
 
-  validates :name, length: { in: 3..40 }
-  validates :kitchen, length: { in: 3..20 }
+  validates :name, length: { in: 2..40 }
+  validates :kitchen, length: { in: 2..40 }
 
   belongs_to :city
   belongs_to :location

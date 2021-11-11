@@ -8,26 +8,26 @@ FactoryBot.define do
     url { FFaker::Internet.http_url }
     housing_type { 1 }
   end
-  
+
   factory :restaurant do
     name { FFaker::NameFR.name }
-    kitchen { FFaker::Lorem.name }
-    delivery { ['uber', 'deliveroo'] }
+    kitchen { FFaker::Lorem.word }
+    delivery { %w[uber deliveroo] }
     vegan { [true, false].sample }
     association :city
     association :location
   end
-  
+
   factory :admin_review do
     first_name { 'Jean' }
     last_name { 'Dupond' }
     email { FFaker::Internet.email }
     comment { FFaker::Lorem.name }
-    status { 'todo' }
+    status { AdminReview.statuses.keys.sample }
     association :admin
-    association :reviewable, factory: [:housing, :restaurant]
+    association :reviewable, factory: [:housing, :restaurant].sample
   end
-  
+
   factory :location do
     address { FFaker::AddressFR.street_name }
     street_number { rand(1..100) }
@@ -36,7 +36,7 @@ FactoryBot.define do
   end
 
   factory :city do
-    name { 'Amiens' }
+    name { FFaker::AddressFR.city + rand(1..100).to_s }
   end
 
   factory :admin do
